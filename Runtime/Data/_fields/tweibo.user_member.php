@@ -1,0 +1,2 @@
+<?php
+return array ( 0 => 'id', 1 => 'uid', 2 => 'open_id', 3 => 'open_key', 4 => 'access_token', 5 => 'expires_in', 6 => 'refresh_token', 7 => 'access_time', 8 => 'member_type', '_autoinc' => true, '_pk' => 'id', ); ?>

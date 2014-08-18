@@ -1,0 +1,33 @@
+<div class='top c_tx5'>
+    <span class='left'>
+	<span class='number cNote'>评论原文</span>
+    </span>
+    <a onclick="showWrap('talkWrap{$blogId} ')" class='close' title='关闭'>关闭</a>
+</div>
+<div class='cont'>
+    <textarea class='inputTxt' name='comtBox{$blogId}' id='talkWrapcomtBox{$blogId}'  onfocus="strLenZFandPL($(this), 'talkWrapcountTxt{$blogId}', 280,'PLBtn');" onblur="strLenZFandPL($(this), 'talkWrapcountTxt{$blogId}', 280,'PLBtn');"  onkeyup="strLenZFandPL($(this), 'talkWrapcountTxt{$blogId}', 280,'PLBtn');"  style='overflow-y: hidden; height: 37px;'></textarea>
+</div>
+<div class='bot'>
+    <div class='insertFun'>
+	<div class='sendList insertFace'>
+	    <a href='javascript:void(0)'  class='txt' title='表情' onclick="showEmotionWrap('faceWrap{$blogId}','talkWrapcomtBox{$blogId}')">
+	       <em class='sico ico_face'></em>表情</a>
+	    <div class='faceWrap' id='faceWrap{$blogId}' style='display:none'></div>
+	</div>
+	<div class='sendList newTopic'>
+	    <a href='javascript:void(0)' class='creatNew txt'  onclick="setTopic('talkWrapcomtBox{$blogId}')"  title='汇聚相同热点的广播'>
+	       <em class='sico ico_topic'></em>话题</a>
+	</div>
+	<div class='sendList keyWords schBrace'>
+	    <a class='txt' title='分享你的兴趣、关注点'  onclick="setKeyWord('talkWrapcomtBox{$blogId}')"  href='javascript:void(0)'>
+	       <em class='sico ic_keyword'></em>关键词</a>
+	</div>
+    </div>
+    <input type='button' class='inputBtn sendBtn' id='PLBtn' onclick="comment('talk','{$blogId}')" value='评论' title='评论'>
+	   <span class='countTxt c_tx5' id='talkWrapcountTxt{$blogId}'>还能输入<em>140</em>字</span>
+</div>
+<div class='relayList' style='display:block;border-top: 1px solid #DEE3E3;'>
+    <div class='clear' id ='relayDiv{$blogId}'>
+	<!--                                                    ajax生成评论列表-->\
+    </div>
+</div>"

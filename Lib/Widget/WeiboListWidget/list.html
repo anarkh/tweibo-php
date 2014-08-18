@@ -1,0 +1,101 @@
+<volist name="data" id="r">
+    <li id='{$r.id}' from='1'>
+	<div class='userPic' onMouseOver="showOtherInfo('{$r.openid}', $(this))"><a href="{$r.blogAdd}"  target='_blank'  tabindex='-1'><img src="{$r.head}"></a></div>
+	<div class='msgBox'>
+	    <div class='userName' rel="{$r.nick}">
+		<strong><a href=" + r[i]['blogAdd'] + "  target='_blank'>{$r.nick}</a>";
+		    <neq name='r.isvip' class="1">
+		    <a  title='腾讯机构认证' target='_blank' class='tIcon ico_cvip'></a>
+		    </neq>
+		    :</strong>&nbsp;
+	    </div>
+	    <div class='msgCnt' >{$r.text}</div>
+	    <if condition='$r.source neq null'>
+		<div class='replyBox bgr2'>
+		    <div class='msgBox'>
+			<div class='msgCnt'>
+			    <strong>
+				<a target='_blank' href="{$r.source.blogAdd}" >{$r.source.nick}</a>
+				<if condition='$r.source.isvip eq 1'>
+				    <a  title='腾讯机构认证' target='_blank' class='tIcon ico_cvip'></a>
+				</if>
+				:</strong>
+			    <div>{$r.source.text}</div>
+			</div>
+			<if condition="$r.source.image neq '/160'">
+			    blog += "<div class='mediaWrap'>
+				<div class='picBox ico_gif_pn'>
+				    <a href='javascript:void(0)' title='查看大图' class='pic' onclick="viewBig(this)">
+					<img class='smileimg' src="{$r.source.image}" style='display: inline;'>
+					<img class='bigimg' src="{$r.source.bigimage}" style='display: none;'></a>
+				    <a href="{$r.source.orimage}" class='orimg' target='_blank' style='display:none'>查看原图</a>
+				</div>
+			    </div>
+			</if>
+			<div class='pubInfo c_tx5'>
+			    <span class='left c_tx'>
+				<a class='time c_tx3' >{$r.source.time}<i class='l'></i></a>
+				<a href='javascript:void(0)' class='zfNum' target='_blank'>全部转播和评论(<b class='zfNum'>{$r.source.count + $r.source.mcount}</b>)
+				</a>
+			    </span>
+			</div>
+		    </div>
+		</div>
+	    </if>	
+	    <if condition="$r.image neq '/160'">
+		<div class='mediaWrap'>
+		    <div id ='picBox' class='picBox'>
+			<a href='javascript:void(0)' title='查看大图' class='pic' onclick="viewBig(this)">
+			    <img class='smileimg' src="{$r.image}" style='display: inline;'>
+			    <img class='bigimg' src="{$r.bigimage}" style='display: none;'></a>
+			<a href="{$r.orimage}" target='_blank' class='orimg' style='display:none'>查看原图</a>
+		    </div>
+		</div>
+	    </if>
+	    <div class='pubInfo'>
+		<span class='left'>
+		    <span class='time'>{$r.time}</span>
+		    <span class='cNote'>转播({$r.count})</span>
+		    <a class='zfNum' >评论(<b class='relayNum'>{$r.mcount}</b>)</a>
+		</span>
+		<div class='funBox'>
+		    <a href='javascript:void(0)' class='int_like' title='标记我喜欢'><i class='ic ico_likeb'></i><i class='like_plus'>+1</i></a>
+		    <span>|</span>
+		    <a href='javascript:void(0)' onclick="zfBtn('{$r.idmage}')" class='relay'>转播</a>
+		    <span>|</span>
+		    <a onclick="talkBtn('{$r.id}');" href='javascript:void(0)' class='comt'>评论</a>
+		    <span>|</span>
+		    <div class='mFun' id='mFun' onmouseover='showmFun(this)' onmouseout='dismFun(this)'>
+			<a>更多<em class='btn_ldrop'></em></a>
+			<div class='mFunDrop'>
+			    <b></b>
+			    <b class='mask'></b>
+			    <p><a href='javascript:void(0)' class='reply'>对话</a></p>";
+			    <if condition="$r.self eq 1">
+				<p><a href='javascript:void(0)' onclick="viewDelChose('{$r.id}')">删除</a></p>
+				<else />
+				<p><a href='javascript:void(0)' onclick="favweibo('{$r.id}', $(this))" class='fav'>收藏</a></p>
+			    </if>
+			    <div class='shareBtn'>
+				<p><a href='javascript:void(0)'>分享</a></p>
+			    </div>
+			    <p><a href='http://t.qq.com/p/t/{$r.id}' class='detail' target='_blank'>详情</a></p>
+			</div>
+		    </div>
+		</div>
+	    </div>
+	    <if condition="$r.self eq 1">
+		<div class='delChose' id='delChose{$r.id}' style='display:none'><span>确定删除这条广播？</span><br>
+		    <label class='gb_btn gb_btn1'>
+			<input type='button' onclick="delweibo('{$r.id}')" value='确定' class='t'></label> 
+		    <label class='gb_btn gb_btn5'>
+			<input type='button' value='取消' onclick="hiddenDelChose('{$r.id}')" class='t'></label></div>
+	    </if>
+	    <div class='talkWrap comtWrap bgr3' id='talkWrap{$r.id}' style='overflow:visible;display: none'></div>
+	    <div class='zfWrap bgr3' id='zfWrap{$r.id}' style='overflow:visible;display: none'></div>
+	</div>
+    </li>
+</volist>
+<script>
+   timestamp = "{$l}";
+</script>
